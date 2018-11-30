@@ -1,3 +1,6 @@
+#here we import all the necessary libraies for the project
+#this project was created as a .py file meant to run on the terminal
+
 import datetime
 import pandas as pd
 import numpy as np
