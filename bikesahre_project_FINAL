@@ -1,0 +1,58 @@
+import datetime
+import pandas as pd
+import numpy as np
+import time
+import csv
+import os.path
+
+#These are the relative paths for all the files needed in the rest of program
+my_path = os.path.dirname(__file__)
+path1 = os.path.join(my_path, "../chicago.csv")
+path2 = os.path.join(my_path, "../washington.csv")
+path3 = os.path.join(my_path, "../new_york_city.csv")
+
+#CREATINg a function to ask user which city they want to look at
+#this and the next 2 functions have a while loop to restart the functions in case user enters unspecified str
+user_city =''
+def get_city():
+    '''Asks the user for a city and returns the filename for that city's bike share data.
+        Args:
+    none.
+        Returns:(str) Filename for a city's bikeshare data.
+    '''
+    while True:
+        user_city = str(input('\nHello! Let\'s explore some US bikeshare data!\n'
+               'Would you like to see data for Chicago, NYC, or Washington?\n')).lower()
+        if any ([user_city=='nyc', user_city=='chicago',user_city=='washington']) :
+            break
+        print ('Lets try again....')
+
+    return user_city
+
+CITY_DATA = { 'chicago': 'chicago.csv',
+              'nyc': 'new_york_city.csv',
+              'washington': 'washington.csv' }
+#city=get_city()
+
+#CREATINg a time function to see if user wants to parse data with a time period or not
+def get_time_period():
+    '''Asks the user for a time period and returns the specified filter.
+    Args:none.
+    Returns: a str specifiyin the filter either by month or day or none
+    '''
+    while True:
+        time_period = str(input('\nWould you like to filter the data by month, day, or not at all? Type "none" for no time filter.\n')).lower()
+        if any ([time_period=='month',time_period=='day',time_period=='none']) :
+            break
+        print ('Lets try again...get it right!, time flies...')
+    return time_period
+
+#CREATINg MONTH function to ask for WHICH MONTH user is interested
+def get_month():
+    '''Asks the user for a month and returns the specified month.
+    Args:none
+    Returns: a str with the specified month
+    '''
+    while True:
+        month = str(input('\nWhich month would you like to select? january, february, march, april, may, or june?\n')).lower()
+        if any ([month=='january',month=='february',month=='march',month=='april',month=='may',month=='june']) :
