@@ -11,9 +11,6 @@ Start Station (e.g., Broadway & Barry Ave)
 End Station (e.g., Sedgwick St & North Ave)
 User Type (Subscriber or Customer)
 
-The Chicago and New York City files also have the following two columns:
-
-Gender
-Birth Year
+The Chicago and New York City files also have the following additional Gender and Birth Year info.
 
 #The statistics computed here are: popular times of travel (month, week, hour), popular stations and trip, trip duration and user info.
